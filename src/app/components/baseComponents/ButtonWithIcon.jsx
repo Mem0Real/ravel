@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { defaultBtn } from "../constants";
+import { defaultBtn } from "../../constants";
 
 const ButtonWithIcon = ({
 	className,

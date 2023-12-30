@@ -2,7 +2,7 @@ import React from "react";
 import { Raleway } from "next/font/google";
 import { MdOutlineChevronRight } from "react-icons/md";
 import ButtonWithIcon from "../baseComponents/ButtonWithIcon";
-import { whiteBtn } from "../constants";
+import { whiteBtn } from "../../constants";
 
 const raleway = Raleway({ subsets: ["latin"] });
 

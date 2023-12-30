@@ -2,10 +2,10 @@
 
 import React from "react";
 
-import Button from "@/app/baseComponents/Button";
+import Button from "@/app/components/baseComponents/Button";
 import { CiMenuFries } from "react-icons/ci";
 import { redBtn } from "@/app/constants";
-import FramerButton from "@/app/baseComponents/FramerButton";
+import FramerButton from "@/app/components/baseComponents/FramerButton";
 
 const NavEnd = ({ toggleHamburger }) => {
 	return (

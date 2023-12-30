@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { defaultBtn } from "../constants";
+import { defaultBtn } from "../../constants";
 
 const FramerButton = ({ className, text = "button", handleClick }) => {
 	return (

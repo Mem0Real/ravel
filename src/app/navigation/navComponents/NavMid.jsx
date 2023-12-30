@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Button from "@/app/baseComponents/Button";
+import Button from "@/app/components/baseComponents/Button";
 
 const NavMid = () => {
 	return (

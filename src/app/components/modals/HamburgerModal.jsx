@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import Button from "@/app/baseComponents/Button";
+import Button from "@/app/components/baseComponents/Button";
 import { redBtn } from "@/app/constants";
 
 const HamburgerModal = ({ handleClose }) => {
