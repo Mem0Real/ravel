@@ -10,7 +10,7 @@ const InputWithIcon = ({
 }) => {
 	return (
 		<div
-			className={`border-b border-neutral-300/70 p-2 flex justify-between items-center w-full relative  ${className}`}
+			className={`border-b border-neutral-300/70 p-2 flex justify-between items-center relative  ${className}`}
 		>
 			<input
 				name={name}

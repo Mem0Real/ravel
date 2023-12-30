@@ -6,7 +6,6 @@ const Modal = ({ handleClose, content, variant }) => {
 		<Backdrop onClick={handleClose}>
 			<motion.div
 				onClick={(e) => e.stopPropagation()}
-				className="modal orange-gradient"
 				variants={variant}
 				initial="hidden"
 				animate="visible"

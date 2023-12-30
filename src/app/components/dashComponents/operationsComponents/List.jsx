@@ -4,7 +4,7 @@ import Card from "../../baseComponents/Card";
 const List = ({ tools }) => {
 	return (
 		<div className="flex flex-col justify-center items-center">
-			<div className="flex flex-col gap-8 justify-between items-center">
+			<div className="flex flex-col gap-8 justify-between items-center pb-8">
 				{tools.map(({ id, name, description }) => (
 					<React.Fragment key={id}>
 						<Card id={id} name={name} description={description} />

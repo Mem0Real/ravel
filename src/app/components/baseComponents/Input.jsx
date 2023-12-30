@@ -8,6 +8,7 @@ const Input = ({
 	value,
 	error,
 	className,
+	handleChange,
 }) => {
 	return (
 		<div className={`px-1.5 py-1.5 border-b ${className}`}>
@@ -16,7 +17,8 @@ const Input = ({
 				type={type}
 				placeholder={placeholder}
 				value={value}
-				className={`bg-transparent border-none outline-none`}
+				className={`bg-transparent border-none outline-none placeholder:text-neutral-600`}
+				onChange={handleChange}
 			/>
 		</div>
 	);
