@@ -1,7 +1,8 @@
 import React from "react";
+import Landing from "../components/dashComponents/Landing";
 
 const DashboardPage = () => {
-	return <div>DashboardPage</div>;
+	return <Landing />;
 };
 
 export default DashboardPage;
