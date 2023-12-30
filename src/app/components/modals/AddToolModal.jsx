@@ -7,6 +7,7 @@ import Input from "../baseComponents/Input";
 import TextArea from "../baseComponents/TextArea";
 import { greenBtn } from "@/app/constants";
 import { Create } from "@/app/serverActions/Create";
+import AddModalBody from "./modalComponents/AddModalBody";
 
 const AddToolModal = ({ handleClose }) => {
 	const [newTool, setNewTool] = useState({ name: "", description: "" });
@@ -64,31 +65,12 @@ const AddToolModal = ({ handleClose }) => {
 					text={<MdOutlineClose />}
 				/>
 			</div>
-
-			<div className="flex flex-col justify-center items-center gap-8 w-full py-12">
-				<Input
-					name="name"
-					placeholder="Title"
-					className="w-[70%] mx-auto"
-					handleChange={handleChange}
-					value={newTool.name || ""}
-				/>
-				<TextArea
-					cols={20}
-					rows={5}
-					name="description"
-					placeholder="Description"
-					className=" w-[70%] mx-auto"
-					handleChange={handleChange}
-					value={newTool.description || ""}
-				/>
-				<FramerButton
-					handleClick={handleSubmit}
-					text="Submit"
-					className={greenBtn}
-					loading={loading}
-				/>
-			</div>
+			<AddModalBody
+				newTool={newTool}
+				handleChange={handleChange}
+				handleSubmit={handleSubmit}
+				loading={loading}
+			/>
 		</div>
 	);
 };

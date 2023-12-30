@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import InputWithIcon from "../../baseComponents/InputWithIcon";
 
 import { MdSearch } from "react-icons/md";
@@ -76,13 +76,6 @@ const ListView = ({ tools }) => {
 					handleChange={handleChange}
 					className="w-fit z-10"
 				/>
-				{/* <button onClick={toggleAddTool}>
-					<CiCirclePlus
-						size={30}
-						color="#228B22"
-						className="self-end place-self-end mb-1.5"
-					/>
-				</button> */}
 				<FramerButton
 					text={
 						<CiCirclePlus

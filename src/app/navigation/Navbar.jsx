@@ -24,16 +24,23 @@ const Navbar = () => {
 				<NavMid />
 				<NavEnd toggleHamburger={toggleHamburger} />
 			</nav>
-			<AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
-				{hamburger && (
-					<Modal
-						modalOpen={hamburger}
-						handleClose={closeHamburger}
-						content={<HamburgerModal handleClose={closeHamburger} />}
-						variant={dropIn}
-					/>
-				)}
-			</AnimatePresence>
+			<div className="relative w-full mx-auto bg-black z-20">
+				<AnimatePresence
+					initial={false}
+					mode="wait"
+					onExitComplete={() => null}
+				>
+					{hamburger && (
+						<Modal
+							modalOpen={hamburger}
+							handleClose={closeHamburger}
+							content={<HamburgerModal handleClose={closeHamburger} />}
+							variant={dropIn}
+							className="relative"
+						/>
+					)}
+				</AnimatePresence>{" "}
+			</div>
 		</>
 	);
 };

@@ -4,7 +4,7 @@ const dropIn = {
 		opacity: 0,
 	},
 	visible: {
-		y: "62vh",
+		y: "95vh",
 		opacity: 1,
 		transition: {
 			duration: 0.1,
