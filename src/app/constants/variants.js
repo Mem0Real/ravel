@@ -1,4 +1,4 @@
-const dropIn = {
+const slideUp = {
 	hidden: {
 		y: "100vh",
 		opacity: 0,
@@ -89,4 +89,4 @@ const badSuspension = {
 	},
 };
 
-export { dropIn, flip, newspaper, badSuspension };
+export { slideUp, flip, newspaper, badSuspension };

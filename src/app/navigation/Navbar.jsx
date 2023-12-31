@@ -9,7 +9,7 @@ import NavEnd from "./navComponents/NavEnd";
 
 import Modal from "../components/Modal";
 import HamburgerModal from "../components/modals/HamburgerModal";
-import { dropIn } from "../constants/variants";
+import { slideUp } from "../constants/variants";
 
 const Navbar = () => {
 	const [hamburger, setHamburger] = useState(false);
@@ -35,7 +35,7 @@ const Navbar = () => {
 							modalOpen={hamburger}
 							handleClose={closeHamburger}
 							content={<HamburgerModal handleClose={closeHamburger} />}
-							variant={dropIn}
+							variant={slideUp}
 							className="relative"
 						/>
 					)}

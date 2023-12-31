@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Read } from "@/app/serverActions/Read";
-
 import ListView from "./operationsComponents/ListView";
+
+import { Read } from "@/app/serverActions/Read";
 
 const Operations = async () => {
 	const tools = await Read();
