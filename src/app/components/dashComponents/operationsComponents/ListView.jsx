@@ -27,9 +27,6 @@ const ListView = ({ tools }) => {
 		setShowAddTool(false);
 	};
 
-	useEffect(() => {
-		console.log(showAddTool);
-	}, [showAddTool]);
 	const filterData = (text) => {
 		const result = tools.filter((tool) => {
 			return tool.name.toLowerCase().includes(text.toLowerCase());

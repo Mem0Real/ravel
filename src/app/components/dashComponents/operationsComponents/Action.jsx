@@ -1,18 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import FramerButton from "../../baseComponents/FramerButton";
 
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
 
-const Action = ({ id }) => {
-	const handleEditClick = async () => {
-		console.log("edit clicked");
-		console.log(id);
-	};
-	const handleDeleteClick = async () => {
-		console.log("Delete clicked");
-		console.log(id);
-	};
+const Action = ({ handleEditClick, handleDeleteClick }) => {
 	return (
 		<div
 			className={`h-full flex flex-col justify-center gap-16 md:gap-12 items-end md:px-4 py-5`}

@@ -3,11 +3,11 @@ import React, { useEffect, useRef, useState } from "react";
 import FramerButton from "../baseComponents/FramerButton";
 
 import { MdOutlineClose } from "react-icons/md";
-import { Create } from "@/app/serverActions/Create";
+import { Update } from "@/app/serverActions/Update";
 import AddModalBody from "./modalComponents/AddModalBody";
 
-const AddToolModal = ({ handleClose }) => {
-	const [newTool, setNewTool] = useState({ name: "", description: "" });
+const EditToolModal = ({ id, data, handleClose }) => {
+	const [selectedTool, setSelectedTool] = useState(data);
 	const [loading, setLoading] = useState(false);
 
 	const ref = useRef();
@@ -28,8 +28,8 @@ const AddToolModal = ({ handleClose }) => {
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 
-		setNewTool({
-			...newTool,
+		setSelectedTool({
+			...selectedTool,
 			[name]: value,
 		});
 	};
@@ -38,9 +38,9 @@ const AddToolModal = ({ handleClose }) => {
 		setLoading(true);
 
 		try {
-			await Create(newTool);
+			await Update(id, selectedTool);
 			setLoading(false);
-			setNewTool({ name: "", description: "" });
+			setSelectedTool({ name: "", description: "" });
 			handleClose();
 		} catch (error) {
 			setLoading(false);
@@ -62,8 +62,8 @@ const AddToolModal = ({ handleClose }) => {
 					text={<MdOutlineClose />}
 				/>
 			</div>
-			<AddModalBody
-				newTool={newTool}
+			<EditToolModal
+				selectedTool={selectedTool}
 				handleChange={handleChange}
 				handleSubmit={handleSubmit}
 				loading={loading}
@@ -72,4 +72,4 @@ const AddToolModal = ({ handleClose }) => {
 	);
 };
 
-export default AddToolModal;
+export default EditToolModal;
