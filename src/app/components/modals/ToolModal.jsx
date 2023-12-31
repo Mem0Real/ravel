@@ -5,7 +5,7 @@ import ToolBody from "./modalComponents/ToolBody";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import { SelectedContext } from "../dashComponents/operationsComponents/ListView";
 
-const ToolModal = ({ id, title, data, handleClose, operation }) => {
+const ToolModal = ({ title, handleClose, operation }) => {
 	const { selectedTool } = useContext(SelectedContext);
 
 	const [tool, setTool] = useState(
@@ -31,7 +31,7 @@ const ToolModal = ({ id, title, data, handleClose, operation }) => {
 		setLoading(true);
 
 		try {
-			if (id) await operation(id, tool);
+			if (selectedTool?.id) await operation(selectedTool?.id, tool);
 			else await operation(tool);
 
 			setLoading(false);

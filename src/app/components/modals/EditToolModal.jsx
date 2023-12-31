@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import FramerButton from "../baseComponents/FramerButton";
 
 import { MdOutlineClose } from "react-icons/md";
-import { Update } from "@/app/serverActions/Update";
+import { Update } from "@/app/serverActions/updateTool";
 import AddModalBody from "./modalComponents/AddModalBody";
 
 const EditToolModal = ({ id, data, handleClose }) => {

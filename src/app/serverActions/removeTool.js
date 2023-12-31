@@ -1,14 +1,12 @@
 "use server";
-
 import { prisma } from "@/lib/prisma";
 
-export async function Update(id, data) {
+export async function removeTool(id) {
 	try {
-		await prisma.tools.update({
+		await prisma.tools.delete({
 			where: {
 				id: id,
 			},
-			data: data,
 		});
 	} catch (error) {
 		console.log("Error: ", error);

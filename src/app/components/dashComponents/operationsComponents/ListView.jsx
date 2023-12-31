@@ -15,14 +15,9 @@ import { CiCirclePlus } from "react-icons/ci";
 export const ActionContext = createContext();
 export const SelectedContext = createContext();
 
-const initialState = {
-	message: "",
-};
-
 const ListView = ({ tools }) => {
 	const [searchText, setSearchText] = useState("");
 
-	const [id, setId] = useState(null);
 	const [data, setData] = useState(tools);
 	const [selectedTool, setSelectedTool] = useState(null);
 
@@ -57,6 +52,7 @@ const ListView = ({ tools }) => {
 				showDeleteTool(false);
 				break;
 		}
+		setSelectedTool(null);
 	};
 
 	const handleEdit = (id, name, description) => {
@@ -123,7 +119,7 @@ const ListView = ({ tools }) => {
 
 			{/* Display list */}
 			<ActionContext.Provider value={{ handleEdit, handleDelete }}>
-				{data && <List tools={data} />}
+				{searchText ? <List tools={data} /> : <List tools={tools} />}
 			</ActionContext.Provider>
 		</>
 	);

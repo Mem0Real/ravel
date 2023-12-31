@@ -5,9 +5,9 @@ import ToolModal from "../../modals/ToolModal";
 
 import { flip } from "@/app/constants/variants";
 
-import { Create } from "@/app/serverActions/Create";
-import { Update } from "@/app/serverActions/Update";
-import { Delete } from "@/app/serverActions/Delete";
+import { createTool } from "@/app/serverActions/createTool";
+import { updateTool } from "@/app/serverActions/updateTool";
+import { removeTool } from "@/app/serverActions/removeTool";
 
 const ToolForm = ({ addTool, editTool, deleteTool, closeTool }) => {
 	return (
@@ -18,7 +18,7 @@ const ToolForm = ({ addTool, editTool, deleteTool, closeTool }) => {
 						handleClose={() => closeTool("add")}
 						content={
 							<ToolModal
-								operation={Create}
+								operation={createTool}
 								handleClose={() => closeTool("add")}
 							/>
 						}
@@ -30,7 +30,7 @@ const ToolForm = ({ addTool, editTool, deleteTool, closeTool }) => {
 						content={
 							<ToolModal
 								title="Edit Tool"
-								operation={Update}
+								operation={updateTool}
 								handleClose={() => closeTool("edit")}
 							/>
 						}
@@ -43,7 +43,7 @@ const ToolForm = ({ addTool, editTool, deleteTool, closeTool }) => {
 							content={
 								<ToolModal
 									title="Delete Tool"
-									operation={Delete}
+									operation={removeTool}
 									handleClose={() => closeTool("delete")}
 								/>
 							}
