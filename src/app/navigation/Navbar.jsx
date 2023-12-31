@@ -11,7 +11,8 @@ import Modal from "../components/Modal";
 import HamburgerModal from "../components/modals/HamburgerModal";
 import { slideUp } from "../constants/variants";
 
-const Navbar = () => {
+
+const Navbar = ({ session }) => {
 	const [hamburger, setHamburger] = useState(false);
 
 	const closeHamburger = () => setHamburger(false);
@@ -22,7 +23,7 @@ const Navbar = () => {
 			<nav className="w-full py-2 px-6 md:px-20 md:my-4 flex justify-between items-start">
 				<NavStart />
 				<NavMid />
-				<NavEnd toggleHamburger={toggleHamburger} />
+				<NavEnd toggleHamburger={toggleHamburger} session={session} />
 			</nav>
 			<div className="relative w-full mx-auto bg-black z-20">
 				<AnimatePresence
