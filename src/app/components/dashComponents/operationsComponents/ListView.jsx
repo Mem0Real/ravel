@@ -1,9 +1,6 @@
 "use client";
 
 import React, { createContext, useState, useEffect } from "react";
-import { useFormState } from "react-dom";
-import { useFormStatus } from "react-dom";
-
 import List from "./List";
 
 import Search from "./Search";
@@ -18,7 +15,7 @@ export const SelectedContext = createContext();
 const ListView = ({ tools }) => {
 	const [searchText, setSearchText] = useState("");
 
-	const [data, setData] = useState(tools);
+	const [data, setData] = useState();
 	const [selectedTool, setSelectedTool] = useState(null);
 
 	const [addTool, showAddTool] = useState(false);
@@ -80,7 +77,7 @@ const ListView = ({ tools }) => {
 
 	// Filter data on search
 	useEffect(() => {
-		filterData(searchText);
+		setTimeout(filterData(searchText), 500);
 	}, [searchText]);
 
 	const handleChange = (e) => {
@@ -94,8 +91,10 @@ const ListView = ({ tools }) => {
 	return (
 		<>
 			{/* Modal to add, edit or delete */}
-			<SelectedContext.Provider value={{ selectedTool }}>
-				<ToolForm addTool={addTool} editTool={editTool} closeTool={closeTool} />
+			<SelectedContext.Provider
+				value={{ selectedTool, addTool, editTool, deleteTool, closeTool }}
+			>
+				<ToolForm />
 			</SelectedContext.Provider>
 
 			{/* Search input and add trigger */}

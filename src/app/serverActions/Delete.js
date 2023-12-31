@@ -2,15 +2,15 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
-export async function createTool(tool) {
+export async function Delete(id) {
 	try {
-		await prisma.tools.create({
-			data: tool,
+		await prisma.tools.delete({
+			where: {
+				id: id,
+			},
 		});
-
 		revalidatePath("/dashboard");
 	} catch (error) {
-		console.log("Error Occured: ", error);
+		console.log("Error: ", error);
 	}
-	revalidatePath("/dashboard");
 }

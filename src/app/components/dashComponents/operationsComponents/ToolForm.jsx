@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AnimatePresence } from "framer-motion";
 import Modal from "../../Modal";
 import ToolModal from "../../modals/ToolModal";
 
 import { flip } from "@/app/constants/variants";
 
-import { createTool } from "@/app/serverActions/createTool";
-import { updateTool } from "@/app/serverActions/updateTool";
-import { removeTool } from "@/app/serverActions/removeTool";
+import { Create } from "@/app/serverActions/Create";
+import { Update } from "@/app/serverActions/Update";
+import { Delete } from "@/app/serverActions/Delete";
+import { SelectedContext } from "./ListView";
 
-const ToolForm = ({ addTool, editTool, deleteTool, closeTool }) => {
+const ToolForm = () => {
+	const { addTool, editTool, deleteTool, closeTool } =
+		useContext(SelectedContext);
+
 	return (
-		<div className="relative w-[90%] md:w-[50%] mx-auto bg-black z-20">
+		<div className="relative w-[90%] md:w-[50%] lg:w-[30%] mx-auto bg-black z-20">
 			<AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
 				{addTool ? (
 					<Modal
 						handleClose={() => closeTool("add")}
 						content={
 							<ToolModal
-								operation={createTool}
+								title="Add Tool"
+								operation={Create}
 								handleClose={() => closeTool("add")}
 							/>
 						}
@@ -30,7 +35,7 @@ const ToolForm = ({ addTool, editTool, deleteTool, closeTool }) => {
 						content={
 							<ToolModal
 								title="Edit Tool"
-								operation={updateTool}
+								operation={Update}
 								handleClose={() => closeTool("edit")}
 							/>
 						}
@@ -43,8 +48,9 @@ const ToolForm = ({ addTool, editTool, deleteTool, closeTool }) => {
 							content={
 								<ToolModal
 									title="Delete Tool"
-									operation={removeTool}
+									operation={Delete}
 									handleClose={() => closeTool("delete")}
+									remove
 								/>
 							}
 							variant={flip}

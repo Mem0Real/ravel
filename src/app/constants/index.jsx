@@ -6,4 +6,4 @@ export const redBtn = "border-red-500 hover:bg-red-800 active:bg-red-950";
 export const whiteBtn =
 	"border-white hover:bg-neutral-200 hover:text-neutral-800 active:bg-neutral-400 active:text-neutral-900";
 export const neutralBtn =
-	"border-neutral-500 hover:bg-neutral-800 active:bg-neutral-950";
+	"border-neutral-500 hover:bg-neutral-800 active:bg-neutral-950 text-neutral-200";

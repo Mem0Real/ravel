@@ -3,9 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
-export async function updateTool(id, data) {
-	console.log(data);
-
+export async function Update(id, data) {
 	try {
 		await prisma.tools.update({
 			where: {
