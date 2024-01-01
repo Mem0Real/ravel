@@ -7,3 +7,5 @@ export const whiteBtn =
 	"border-white hover:bg-neutral-200 hover:text-neutral-800 active:bg-neutral-400 active:text-neutral-900";
 export const neutralBtn =
 	"border-neutral-500 hover:bg-neutral-800 active:bg-neutral-950 text-neutral-200";
+export const solidBtn =
+	"px-4 py-2 text-sm rounded-lg border flex items-center gap-2";

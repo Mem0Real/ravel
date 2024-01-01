@@ -26,9 +26,9 @@ const actions = [
 const Body = () => {
 	return (
 		<div className="md:h-[35em] w-[99vw] relative backdrop-blur md:backdrop-blur-none flex flex-col md:flex-row justify-between">
-			<div className="flex flex-col justify-center items-center md:items-start gap-3 w-full -mt-4 pb-8 md:-mt-44 md:ps-24 z-10 backdrop-blur md:backdrop-blur-none">
+			<div className="flex flex-col justify-center items-center md:items-start gap-3 w-full -mt-4 pb-12 md:-mt-44 md:ps-24 z-10 backdrop-blur md:backdrop-blur-none">
 				<h1
-					className={`text-4xl font-medium text-center text-pretty ${mont.className}`}
+					className={`text-3xl md:text-4xl font-medium text-center text-pretty w-[90%] md:w-auto ${mont.className}`}
 				>
 					AI Skills in a nutshell
 				</h1>
@@ -45,7 +45,7 @@ const Body = () => {
 			/>
 			<div className="flex flex-col justify-center items-center md:items-start gap-3 w-full pt-12 md:mt-36 md:ps-24 z-10 backdrop-blur md:backdrop-blur-none">
 				<h1
-					className={`text-4xl font-medium text-center text-pretty ${mont.className}`}
+					className={`text-3xl md:text-4xl font-medium text-center text-pretty w-[90%] md:w-auto ${mont.className}`}
 				>
 					Snapshot of AI in action
 				</h1>

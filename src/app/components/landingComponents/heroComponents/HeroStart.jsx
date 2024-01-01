@@ -2,7 +2,8 @@ import React from "react";
 import { Orbitron } from "next/font/google";
 import { MdOutlineChevronRight } from "react-icons/md";
 import ButtonWithIcon from "../../baseComponents/ButtonWithIcon";
-import { whiteBtn } from "../../../constants";
+import { whiteBtn, solidBtn } from "../../../constants";
+import Link from "next/link";
 
 const raleway = Orbitron({ weight: "700", subsets: ["latin"] });
 
@@ -15,11 +16,14 @@ const HeroStart = () => {
 				AI: Your trusted guide to a brighter future.
 			</h1>
 
-			<ButtonWithIcon
-				text="Get Started"
-				icon={<MdOutlineChevronRight size={24} />}
-				className={`rounded-full bg-neutral-800/80 md:bg-transparent ${whiteBtn}`}
-			/>
+			<Link href="/dashboard">
+				<ButtonWithIcon
+					text="Get Started"
+					icon={<MdOutlineChevronRight size={24} />}
+					className={`${solidBtn} ${whiteBtn} rounded-full bg-black md:bg-transparent`}
+					solid
+				/>
+			</Link>
 		</div>
 	);
 };

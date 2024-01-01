@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { defaultBtn } from "../../constants";
+import { defaultBtn, solidBtn } from "../../constants";
 
 const ButtonWithIcon = ({
 	className,
@@ -9,10 +9,13 @@ const ButtonWithIcon = ({
 	position = "right",
 	icon,
 	handleClick,
+	solid,
 }) => {
 	return position === "left" ? (
 		<button
-			className={`flex items-center gap-2 ${defaultBtn} ${className}`}
+			className={`flex items-center gap-2 ${
+				solid ? solidBtn : defaultBtn
+			} ${className}`}
 			onClick={handleClick}
 		>
 			{icon}
@@ -20,7 +23,9 @@ const ButtonWithIcon = ({
 		</button>
 	) : (
 		<button
-			className={`flex items-center gap-2 ${defaultBtn} ${className}`}
+			className={`flex items-center gap-2 ${
+				solid ? solidBtn : defaultBtn
+			} ${className}`}
 			onClick={handleClick}
 		>
 			{text}
