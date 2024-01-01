@@ -56,7 +56,7 @@ const Footer = () => {
 					<h1
 						className={`lg:px-32 text-3xl md:text-5xl font-semibold ${orbit.className}`}
 					>
-						Glimpse of AI's future in human civilization
+						Glimpse of AI&apos;s future in human civilization
 					</h1>
 				</div>
 				<div className="basis-5/6 flex gap-10 gap-y-24 flex-wrap justify-evenly items-center pt-0 md:pt-12 pb-16">
