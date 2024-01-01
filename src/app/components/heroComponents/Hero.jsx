@@ -4,8 +4,8 @@ import HeroEnd from "./HeroEnd";
 
 const Hero = () => {
 	return (
-		<div className="flex flex-col gap-12 md:flex-row items-center md:items-start justify-between w-fit relative">
-			<div className="basis-0 md:basis-1/3 h-80 md:h-full text-center md:text-start md:mt-12">
+		<div className="flex flex-col gap-12 md:flex-row items-center md:items-center justify-between w-fit relative md:mt-4">
+			<div className="basis-0 md:basis-1/3 h-80 md:h-full md:-mt-5 text-center md:text-start">
 				<HeroStart />
 			</div>
 			<div className="hidden md:block absolute -right-16 w-[40vw] h-[80vh] bg-heroBg bg-center bg-no-repeat bg-contain -z-50" />

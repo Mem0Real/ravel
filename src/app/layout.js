@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./navigation/Navbar";
 import Footer from "./navigation/Footer";
 import { NavbarBase } from "./serverComponents/NavbarBase";
+import ToasterContext from "@/context/ToasterContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +16,9 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body className={inter.className}>
+				<ToasterContext />
 				<NavbarBase />
-				<div className="pt-16 md:pt-6">{children}</div>
+				{children}
 				<Footer />
 			</body>
 		</html>
