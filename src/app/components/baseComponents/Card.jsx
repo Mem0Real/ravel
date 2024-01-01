@@ -1,13 +1,13 @@
 import React from "react";
 import { Montserrat } from "next/font/google";
 
-const raleway = Montserrat({ subsets: ["latin"] });
+const mont = Montserrat({ weight: "400", subsets: ["latin"] });
 
 const Card = ({ name, description }) => {
 	return (
 		<>
 			<h1
-				className={`text-2xl md:text-3xl font-bold underline ${raleway.className}`}
+				className={`text-2xl md:text-3xl font-bold underline tracking-wide ${mont.className}`}
 			>
 				{name}
 			</h1>

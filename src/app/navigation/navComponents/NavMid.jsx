@@ -6,6 +6,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 import { usePathname } from "next/navigation";
+import { Montserrat } from "next/font/google";
+
+const mont = Montserrat({ weight: "400", subsets: ["latin"] });
 
 const NavMid = () => {
 	const path = usePathname();
@@ -27,7 +30,7 @@ const NavMid = () => {
 					)}
 					<span
 						key={href}
-						className="text-sm text-neutral-700 dark:text-neutral-300 rounded-md backdrop-blur-md transition-all duration-200 ease-in-out hover:text-neutral-900 dark:hover:text-neutral-100 "
+						className={`text-sm text-neutral-700 dark:text-neutral-300 rounded-md backdrop-blur-md transition-all duration-200 ease-in-out hover:text-neutral-900 dark:hover:text-neutral-100 ${mont.className}`}
 					>
 						{label}
 					</span>

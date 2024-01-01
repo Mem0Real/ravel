@@ -12,6 +12,10 @@ import { redBtn } from "@/app/constants";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 
+import { Raleway } from "next/font/google";
+
+const raleway = Raleway({ weight: "400", subsets: ["latin"] });
+
 const HamburgerModal = ({ handleClose, session }) => {
 	const ref = useRef();
 	const router = useRouter();
@@ -39,6 +43,7 @@ const HamburgerModal = ({ handleClose, session }) => {
 	}, [handleClose]);
 
 	const handleSignOut = async () => {
+		handleClose();
 		const toastId = toast.loading("Logging out");
 
 		await signOut({ callbackUrl: "/" });
@@ -46,7 +51,6 @@ const HamburgerModal = ({ handleClose, session }) => {
 		toast.remove(toastId);
 		toast("Logged out");
 
-		handleClose();
 		// Refresh the page to update the session
 		router.push("/");
 		router.refresh("/");
@@ -71,7 +75,7 @@ const HamburgerModal = ({ handleClose, session }) => {
 							)}
 							<span
 								key={href}
-								className="text-sm text-neutral-700 p-1 dark:text-neutral-300 rounded-md backdrop-blur-md transition-all duration-200 ease-in-out hover:text-neutral-900 dark:hover:text-neutral-100 "
+								className={`text-sm text-neutral-700 p-1 dark:text-neutral-300 rounded-md backdrop-blur-md transition-all duration-200 ease-in-out hover:text-neutral-900 dark:hover:text-neutral-100 ${raleway.className}`}
 							>
 								{label}
 							</span>

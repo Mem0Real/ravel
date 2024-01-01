@@ -1,10 +1,10 @@
 import React from "react";
-import { Raleway } from "next/font/google";
+import { Orbitron } from "next/font/google";
 import { MdOutlineChevronRight } from "react-icons/md";
-import ButtonWithIcon from "../baseComponents/ButtonWithIcon";
-import { whiteBtn } from "../../constants";
+import ButtonWithIcon from "../../baseComponents/ButtonWithIcon";
+import { whiteBtn } from "../../../constants";
 
-const raleway = Raleway({ subsets: ["latin"] });
+const raleway = Orbitron({ weight: "700", subsets: ["latin"] });
 
 const HeroStart = () => {
 	return (

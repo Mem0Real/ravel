@@ -8,7 +8,7 @@ import Footer from "./navigation/Footer";
 
 import ToasterContext from "@/context/ToasterContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ weight: "200", subsets: ["latin"] });
 
 export const metadata = {
 	title: "Ravel",
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
 				<ToasterContext />
 				<div className="flex flex-col justify-between h-full">
 					<NavbarBase />
-					<div className=" bg-neutral-400/30 backdrop-blur-50">
+					<div className="overflow-x-hidden no-scrollbar bg-neutral-400/30 backdrop-blur-50">
 						<NextTopLoader showSpinner={false} />
 					</div>
 				</div>
