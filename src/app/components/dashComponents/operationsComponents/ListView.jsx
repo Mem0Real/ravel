@@ -59,9 +59,9 @@ const ListView = ({ tools }) => {
 		showEditTool(true);
 	};
 
-	const handleDelete = (id) => {
+	const handleDelete = (id, name) => {
 		// Select tool to delete
-		setSelectedTool({ id });
+		setSelectedTool({ id, name });
 
 		showDeleteTool(true);
 	};

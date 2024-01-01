@@ -4,6 +4,7 @@ import ToolHeader from "./modalComponents/ToolHeader";
 import ToolBody from "./modalComponents/ToolBody";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import { SelectedContext } from "../dashComponents/operationsComponents/ListView";
+import toast from "react-hot-toast";
 
 const ToolModal = ({ title, handleClose, operation, remove }) => {
 	const { selectedTool } = useContext(SelectedContext);
@@ -28,6 +29,15 @@ const ToolModal = ({ title, handleClose, operation, remove }) => {
 	};
 
 	const handleSubmit = async () => {
+		let successText = "";
+
+		if (title.includes("Add")) successText = `${tool.name} added successfully!`;
+		else if (title.includes("Edit"))
+			successText = `${selectedTool.name} updated successfully!`;
+		else if (title.includes("Delete"))
+			successText = `${tool.name} removed successfully!`;
+
+		const toastId = toast.loading("Processing...");
 		setLoading(true);
 
 		try {
@@ -35,11 +45,14 @@ const ToolModal = ({ title, handleClose, operation, remove }) => {
 			else await operation(tool);
 
 			setLoading(false);
+			toast.remove(toastId);
+			toast.success(successText);
+
 			setTool({ name: "", description: "" });
 			handleClose();
 		} catch (error) {
 			setLoading(false);
-			console.log("Error", error);
+			toast.error(error);
 		}
 	};
 

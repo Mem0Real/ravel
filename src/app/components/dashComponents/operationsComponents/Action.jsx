@@ -20,7 +20,7 @@ const Action = ({ id, name, description }) => {
 			<FramerButton
 				text={<MdDeleteOutline size={24} color="#f44" />}
 				icon
-				handleClick={() => handleDelete(id)}
+				handleClick={() => handleDelete(id, name)}
 			/>
 		</div>
 	);
