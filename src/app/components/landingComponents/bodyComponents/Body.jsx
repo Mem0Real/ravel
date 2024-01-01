@@ -47,7 +47,7 @@ const Body = () => {
 				<h1
 					className={`text-4xl font-medium text-center text-pretty ${mont.className}`}
 				>
-					Strides AI is achieving
+					Snapshot of AI in action
 				</h1>
 
 				<ScrollList list={actions} variant={textSlideToR} />

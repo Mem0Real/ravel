@@ -88,15 +88,15 @@ const badSuspension = {
 };
 
 const textSlideToR = {
-	hidden: { opacity: 0, x: -35 },
+	hidden: { opacity: 0, x: 50 },
 	visible: { opacity: 1, x: 0 },
-	exit: { opacity: 0, x: 50 },
+	exit: { opacity: 0, y: 15 },
 };
 
 const textSlideToL = {
 	hidden: { opacity: 0, x: 50 },
 	visible: { opacity: 1, x: 0 },
-	exit: { opacity: 0, x: -35 },
+	exit: { opacity: 0, y: 15 },
 };
 
 export {

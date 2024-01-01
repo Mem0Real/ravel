@@ -17,9 +17,10 @@ const ScrollList = ({ list, variant }) => {
 		<div className="ps-4 text-neutral-500">
 			<AnimatePresence mode="wait">
 				<motion.div
-					initial={variant.hidden}
-					animate={variant.visible}
-					exit={variant.hidden}
+					variants={variant}
+					initial="hidden"
+					animate="visible"
+					exit="exit"
 					key={list[currentIndex]}
 					transition={{ duration: 0.6 }}
 				>
