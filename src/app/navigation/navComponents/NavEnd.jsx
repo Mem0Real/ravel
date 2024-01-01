@@ -18,7 +18,7 @@ const NavEnd = ({ toggleHamburger, session }) => {
 	const handleSignOut = async () => {
 		const toastId = toast.loading("Logging out");
 
-		await signOut({ redirect: false });
+		await signOut({ callbackUrl: "/" });
 
 		toast.remove(toastId);
 		toast("Logged out");

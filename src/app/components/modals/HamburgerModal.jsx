@@ -1,10 +1,17 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import Button from "@/app/components/baseComponents/Button";
+import { useRouter } from "next/navigation";
+
+import { signOut } from "next-auth/react";
+
+import FramerButton from "../baseComponents/FramerButton";
 import { redBtn } from "@/app/constants";
 
-const HamburgerModal = ({ handleClose }) => {
+import toast from "react-hot-toast";
+
+const HamburgerModal = ({ handleClose, session }) => {
 	const ref = useRef();
+	const router = useRouter();
 
 	// Close Modal if clicked outside or scrolled
 	useEffect(() => {
@@ -21,6 +28,20 @@ const HamburgerModal = ({ handleClose }) => {
 		};
 	}, [handleClose]);
 
+	const handleSignOut = async () => {
+		const toastId = toast.loading("Logging out");
+
+		await signOut({ callbackUrl: "/" });
+
+		toast.remove(toastId);
+		toast("Logged out");
+
+		handleClose();
+		// Refresh the page to update the session
+		router.push("/");
+		router.refresh("/");
+	};
+
 	return (
 		<div
 			ref={ref}
@@ -31,9 +52,12 @@ const HamburgerModal = ({ handleClose }) => {
 				<Link href="/">Home</Link>
 				<Link href="/dashboard">Dashboard</Link>
 			</div>
-			<Button
+			<FramerButton
 				text="Logout"
-				className={`mt-8 text-xs mx-auto -mb-4 bg-red-500 ${redBtn}`}
+				className={`mt-8 text-xs mx-auto -mb-4 bg-red-500 ${redBtn} ${
+					!session && "invisible"
+				}`}
+				handleClick={handleSignOut}
 			/>
 		</div>
 	);

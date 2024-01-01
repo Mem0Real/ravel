@@ -34,7 +34,12 @@ const Navbar = ({ session }) => {
 						<Modal
 							modalOpen={hamburger}
 							handleClose={closeHamburger}
-							content={<HamburgerModal handleClose={closeHamburger} />}
+							content={
+								<HamburgerModal
+									handleClose={closeHamburger}
+									session={session}
+								/>
+							}
 							variant={slideUp}
 							className="relative"
 						/>
