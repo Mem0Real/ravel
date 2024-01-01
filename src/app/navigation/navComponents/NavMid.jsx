@@ -19,7 +19,6 @@ const NavMid = () => {
 		<ul className="hidden md:flex gap-12 justify-center items-center list-none ">
 			{links.map(({ href, label }) => (
 				<Link key={label} href={href} className="relative group">
-					{/* Add dynamic text to regex to search for link in path */}
 					{path === href && (
 						<motion.span
 							layoutId="active-underline"
