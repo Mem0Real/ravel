@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 import { CiMenuFries } from "react-icons/ci";
 import { redBtn } from "@/app/constants";
@@ -13,12 +13,17 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 const NavEnd = ({ toggleHamburger, session }) => {
+	const [loading, setLoading] = useState(false);
+
 	const router = useRouter();
 
 	const handleSignOut = async () => {
+		setLoading(true);
 		const toastId = toast.loading("Logging out");
 
 		await signOut({ callbackUrl: "/" });
+
+		setLoading(false);
 
 		toast.remove(toastId);
 		toast("Logged out");
@@ -40,6 +45,7 @@ const NavEnd = ({ toggleHamburger, session }) => {
 					text="Logout"
 					className={`text-xs ${redBtn} ${!session && "invisible"}`}
 					handleClick={handleSignOut}
+					loading={loading}
 				/>
 			</div>
 		</div>

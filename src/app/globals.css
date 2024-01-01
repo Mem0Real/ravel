@@ -20,57 +20,76 @@
 body {
 	color: rgb(var(--foreground-rgb));
 	background: rgb(var(--background-rgb));
-
 }
 @layer utilities {
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
 
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
+	/* Hide scrollbar for IE, Edge and Firefox */
+	.no-scrollbar {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
 }
 
 ::-webkit-scrollbar {
-  height: 5px;
-  width: 5px;
-  background: #fff3;
-  border-radius: 1ex;
-  -webkit-border-radius: 1ex;
+	height: 5px;
+	width: 5px;
+	background: #fff3;
+	border-radius: 1ex;
+	-webkit-border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ffff;
-  border-radius: 1ex;
-  -webkit-border-radius: 1ex;
+	background: #ffff;
+	border-radius: 1ex;
+	-webkit-border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-corner {
-  background: #fff3;
+	background: #fff3;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  /* Background color */
-  -webkit-box-shadow: 0 0 0 30px rgb(38 38 38) inset !important;
-  box-shadow: 0 0 0 30px rgb(38 38 38) inset !important;
-  -webkit-text-fill-color: white !important;
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	/* Background color */
+	-webkit-box-shadow: 0 0 0 30px rgb(10 10 10) inset !important;
+	box-shadow: 0 0 0 30px rgb(10 10 10) inset !important;
+	-webkit-text-fill-color: white !important;
+	color: white !important;
+	-webkit-background-clip: text !important;
+	background-clip: text !important;
 }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	appearance: none;
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 /* Firefox */
 input[type="number"] {
 	appearance: textfield;
-  -moz-appearance: textfield;
+	-moz-appearance: textfield;
 }
+/* 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+	transition: background-color 5000s;
+	-webkit-text-fill-color: #fff !important;
+} */

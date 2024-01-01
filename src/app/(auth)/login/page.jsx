@@ -1,21 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import { Montserrat } from "next/font/google";
 
 import { signIn } from "next-auth/react";
 
 import { motion } from "framer-motion";
-
 import { toast } from "react-hot-toast";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
-import { Montserrat } from "next/font/google";
-import Image from "next/image";
 import useIsMobile from "@/hooks/useIsMobile";
 
 const mont = Montserrat({ weight: "400", subsets: ["latin"] });
 
 export default function LoginPage() {
 	const [loading, setLoading] = useState(false);
+	const [password, showPassword] = useState(false);
 
 	const isMobile = useIsMobile();
 
@@ -96,13 +97,24 @@ export default function LoginPage() {
 						</div>
 						<div className="relative z-0 w-2/3 mb-6 group">
 							<input
-								type="password"
+								type={password ? "text" : "password"}
 								name="password"
 								className="block py-2.5 px-0 w-full text-sm text-neutral-800 dark:text-neutral-200 bg-transparent border-0 border-b-2 border-neutral-800 dark:border-neutral-200 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer disabled:border-neutral-800 disabled:dark:border-neutral-200"
 								placeholder=" "
 								autoComplete="current-password"
 								disabled={loading}
 							/>
+							<button
+								type="button"
+								className="absolute right-2 top-3"
+								onClick={() => showPassword(!password)}
+							>
+								{password ? (
+									<AiOutlineEye size={19} />
+								) : (
+									<AiOutlineEyeInvisible size={19} />
+								)}
+							</button>
 
 							<label
 								htmlFor="password"
