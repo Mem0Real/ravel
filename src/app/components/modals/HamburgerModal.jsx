@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { signOut } from "next-auth/react";
 
@@ -12,6 +14,13 @@ import toast from "react-hot-toast";
 const HamburgerModal = ({ handleClose, session }) => {
 	const ref = useRef();
 	const router = useRouter();
+
+	const path = usePathname();
+
+	const links = [
+		{ href: "/", label: "Home" },
+		{ href: "/dashboard", label: "Dashboard" },
+	];
 
 	// Close Modal if clicked outside or scrolled
 	useEffect(() => {
@@ -50,13 +59,38 @@ const HamburgerModal = ({ handleClose, session }) => {
 			}`}
 		>
 			<div className="flex flex-col justify-around items-start gap-4 ps-4 pt-5">
-				<Link href="/" onClick={handleClose}>
+				{/* <Link href="/" onClick={handleClose}>
 					Home
 				</Link>
 				<Link href="/dashboard" onClick={handleClose}>
 					Dashboard
-				</Link>
+				</Link> */}
+				{links.map(({ href, label }) => {
+					return (
+						<Link
+							key={label}
+							href={href}
+							className="relative group"
+							onClick={handleClose}
+						>
+							{/* Add dynamic text to regex to search for link in path */}
+							{path === href && (
+								<motion.span
+									layoutId="active-underline"
+									className="absolute left-0 top-full block h-[2px] w-full bg-neutral-800 dark:bg-neutral-200 mt-0.5"
+								/>
+							)}
+							<span
+								key={href}
+								className="text-sm text-neutral-700 p-1 dark:text-neutral-300 rounded-md backdrop-blur-md transition-all duration-200 ease-in-out hover:text-neutral-900 dark:hover:text-neutral-100 "
+							>
+								{label}
+							</span>
+						</Link>
+					);
+				})}
 			</div>
+
 			{session && (
 				<FramerButton
 					text="Logout"
