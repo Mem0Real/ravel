@@ -9,7 +9,7 @@ import NavEnd from "./navComponents/NavEnd";
 
 import Modal from "../components/Modal";
 import HamburgerModal from "../components/modals/HamburgerModal";
-import { flip, slideFromRight, slideUp } from "../constants/variants";
+import { slideFromRight } from "../constants/variants";
 
 const Navbar = ({ session }) => {
 	const [hamburger, setHamburger] = useState(false);
