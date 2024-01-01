@@ -22,7 +22,7 @@ const List = ({ tools }) => {
 	const isMobile = useIsMobile();
 
 	// Hover Effects
-	const handleMouseEnter = (id, isMobile) => {
+	const handleMouseEnter = (id) => {
 		if (!isMobile) {
 			if (menu.id === id) {
 				setMenu({ id: id, state: !menu.state });
@@ -32,7 +32,7 @@ const List = ({ tools }) => {
 		}
 	};
 
-	const handleMouseLeave = (id, isMobile) => {
+	const handleMouseLeave = (id) => {
 		if (!isMobile) {
 			if (menu.id === id) {
 				setMenu({ id: "", state: false });
@@ -40,19 +40,17 @@ const List = ({ tools }) => {
 		}
 	};
 
-	const handleTap = (id, isMobile) => {
+	const handleTap = (id) => {
 		if (isMobile) {
 			if (menu.id === id) {
 				setMenu({ id: id, state: !menu.state });
 			} else {
 				setMenu({ id: id, state: true });
 			}
-		} else console.log("NM");
+		}
 	};
 
-	const handleMouseMove = (e, isMobile) => {
-		const { clientX, clientY, currentTarget } = e;
-
+	const handleMouseMove = ({ clientX, clientY, currentTarget }) => {
 		if (!isMobile) {
 			let { left, top } = currentTarget.getBoundingClientRect();
 
@@ -71,9 +69,9 @@ const List = ({ tools }) => {
 						<motion.div
 							className="relative overflow-hidden min-w-[70vw] w-[60%] mx-auto border border-white rounded-xl shadow-md shadow-blue-400/80 p-8 pe-16 md:pe-24 flex flex-col justify-between items-start gap-4 cursor-pointer"
 							key={id}
-							onHoverStart={() => handleMouseEnter(id, isMobile)}
-							onHoverEnd={() => handleMouseLeave(id, isMobile)}
-							onMouseMove={(e) => handleMouseMove(e, isMobile)}
+							onHoverStart={() => handleMouseEnter(id)}
+							onHoverEnd={() => handleMouseLeave(id)}
+							onMouseMove={handleMouseMove}
 						>
 							{menu.id === id && menu.state && (
 								<motion.div
@@ -84,7 +82,7 @@ const List = ({ tools }) => {
 								/>
 							)}
 							<motion.div
-								onTap={() => handleTap(id, isMobile)}
+								onTap={() => handleTap(id)}
 								className="flex flex-col gap-5 items-start w-full"
 							>
 								<React.Fragment key={id}>

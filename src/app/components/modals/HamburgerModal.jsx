@@ -50,8 +50,12 @@ const HamburgerModal = ({ handleClose, session }) => {
 			}`}
 		>
 			<div className="flex flex-col justify-around items-start gap-4 ps-4 pt-5">
-				<Link href="/">Home</Link>
-				<Link href="/dashboard">Dashboard</Link>
+				<Link href="/" onClick={handleClose}>
+					Home
+				</Link>
+				<Link href="/dashboard" onClick={handleClose}>
+					Dashboard
+				</Link>
 			</div>
 			{session && (
 				<FramerButton

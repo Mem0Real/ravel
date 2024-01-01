@@ -8,6 +8,7 @@ const useIsMobile = () => {
 			setIsMobile(window.innerWidth < 768);
 		};
 		window.addEventListener("resize", updateSize);
+		updateSize();
 		return () => window.removeEventListener("resize", updateSize);
 	}, []);
 
