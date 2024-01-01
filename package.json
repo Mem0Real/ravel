@@ -4,9 +4,11 @@
 	"private": false,
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build",
+		"build": "rm -rf ./.next && prisma generate && prisma migrate deploy && next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"vercel-build": "prisma generate && prisma migrate deploy && next build",
+		"postinstall": "prisma generate"
 	},
 	"dependencies": {
 		"@preact/signals": "^1.2.2",

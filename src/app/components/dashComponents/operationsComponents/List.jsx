@@ -22,7 +22,7 @@ const List = ({ tools }) => {
 	const isMobile = useIsMobile();
 
 	// Hover Effects
-	const handleMouseEnter = useCallback((id) => {
+	const handleMouseEnter = (id) => {
 		if (!isMobile) {
 			if (menu.id === id) {
 				setMenu({ id: id, state: !menu.state });
@@ -30,28 +30,23 @@ const List = ({ tools }) => {
 				setMenu({ id: id, state: true });
 			}
 		}
-	});
+	};
 
-	const handleMouseLeave = useCallback((id) => {
+	const handleMouseLeave = (id) => {
 		if (!isMobile) {
 			if (menu.id === id) {
 				setMenu({ id: "", state: false });
 			}
 		}
-	});
+	};
 
 	const handleTap = (id) => {
-		console.log(`MnuId: ${menu.id}`);
-		console.log(`ID: ${id}`);
-
 		if (isMobile) {
 			if (menu.id === id) {
 				setMenu({ id: id, state: !menu.state });
 			} else {
 				setMenu({ id: id, state: true });
 			}
-		} else {
-			console.log("NOt Mb");
 		}
 	};
 
@@ -64,9 +59,6 @@ const List = ({ tools }) => {
 		}
 	};
 
-	useEffect(() => {
-		console.log(menu);
-	}, [menu]);
 	const bgTemplate = useMotionTemplate`radial-gradient(350px circle at ${mouseX}px ${mouseY}px, rgb(200 200 200 / 0.15) 0%, transparent 80%)`;
 
 	return (

@@ -77,7 +77,7 @@ const ListView = ({ tools }) => {
 
 	// Filter data on search
 	useEffect(() => {
-		setTimeout(filterData(searchText), 500);
+		filterData(searchText);
 	}, [searchText]);
 
 	const handleChange = (e) => {

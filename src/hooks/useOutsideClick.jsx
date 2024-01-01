@@ -12,7 +12,7 @@ const useOutsideClick = (ref, handleClose) => {
 		return () => {
 			document.removeEventListener("click", checkIfClickedOutside);
 		};
-	}, [handleClose]);
+	}, [ref, handleClose]);
 
 	return <div>useOutsideClick</div>;
 };
