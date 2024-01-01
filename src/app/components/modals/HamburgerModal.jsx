@@ -10,6 +10,7 @@ import FramerButton from "../baseComponents/FramerButton";
 import { redBtn } from "@/app/constants";
 
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const HamburgerModal = ({ handleClose, session }) => {
 	const ref = useRef();
@@ -59,25 +60,13 @@ const HamburgerModal = ({ handleClose, session }) => {
 			}`}
 		>
 			<div className="flex flex-col justify-around items-start gap-4 ps-4 pt-5">
-				{/* <Link href="/" onClick={handleClose}>
-					Home
-				</Link>
-				<Link href="/dashboard" onClick={handleClose}>
-					Dashboard
-				</Link> */}
 				{links.map(({ href, label }) => {
 					return (
-						<Link
-							key={label}
-							href={href}
-							className="relative group"
-							onClick={handleClose}
-						>
-							{/* Add dynamic text to regex to search for link in path */}
+						<Link key={label} href={href} className="relative group">
 							{path === href && (
 								<motion.span
-									layoutId="active-underline"
-									className="absolute left-0 top-full block h-[2px] w-full bg-neutral-800 dark:bg-neutral-200 mt-0.5"
+									layoutId="active-underline-hamburger"
+									className="absolute right-0 top-full block h-[2px] w-full bg-neutral-800 dark:bg-neutral-200 mt-0.5"
 								/>
 							)}
 							<span
