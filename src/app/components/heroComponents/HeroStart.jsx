@@ -18,7 +18,7 @@ const HeroStart = () => {
 			<ButtonWithIcon
 				text="Get Started"
 				icon={<MdOutlineChevronRight size={24} />}
-				className={`rounded-full ${whiteBtn}`}
+				className={`rounded-full bg-neutral-800/80 md:bg-transparent ${whiteBtn}`}
 			/>
 		</div>
 	);
