@@ -8,7 +8,7 @@ const InputComponents = ({ tool, handleChange }) => {
 			<Input
 				name="name"
 				placeholder="Title"
-				className="w-[70%] mx-auto"
+				className="w-full mx-auto"
 				handleChange={handleChange}
 				value={tool.name || ""}
 			/>
@@ -17,7 +17,7 @@ const InputComponents = ({ tool, handleChange }) => {
 				rows={5}
 				name="description"
 				placeholder="Description"
-				className=" w-[70%] mx-auto"
+				className=" w-full mx-auto"
 				handleChange={handleChange}
 				value={tool.description || ""}
 			/>

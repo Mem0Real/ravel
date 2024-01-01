@@ -9,7 +9,7 @@ import NavEnd from "./navComponents/NavEnd";
 
 import Modal from "../components/Modal";
 import HamburgerModal from "../components/modals/HamburgerModal";
-import { slideUp } from "../constants/variants";
+import { flip, slideFromRight, slideUp } from "../constants/variants";
 
 const Navbar = ({ session }) => {
 	const [hamburger, setHamburger] = useState(false);
@@ -18,13 +18,13 @@ const Navbar = ({ session }) => {
 	const toggleHamburger = () => setHamburger(!hamburger);
 
 	return (
-		<>
+		<div className="relative">
 			<nav className="w-full py-4 px-6 md:px-20 flex justify-between items-start">
 				<NavStart />
 				<NavMid />
 				<NavEnd toggleHamburger={toggleHamburger} session={session} />
 			</nav>
-			<div className="relative w-full mx-auto bg-black z-20">
+			<div className="fixed top-16 right-0 w-[50%] mx-auto">
 				<AnimatePresence
 					initial={false}
 					mode="wait"
@@ -32,7 +32,6 @@ const Navbar = ({ session }) => {
 				>
 					{hamburger && (
 						<Modal
-							modalOpen={hamburger}
 							handleClose={closeHamburger}
 							content={
 								<HamburgerModal
@@ -40,13 +39,12 @@ const Navbar = ({ session }) => {
 									session={session}
 								/>
 							}
-							variant={slideUp}
-							className="relative"
+							variant={slideFromRight}
 						/>
 					)}
-				</AnimatePresence>{" "}
+				</AnimatePresence>
 			</div>
-		</>
+		</div>
 	);
 };
 

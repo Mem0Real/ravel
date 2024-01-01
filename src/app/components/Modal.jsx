@@ -10,7 +10,7 @@ const Modal = ({ handleClose, content, variant, className }) => {
 				initial="hidden"
 				animate="visible"
 				exit="exit"
-				className={className}
+				className={`${className}`}
 			>
 				{content}
 			</motion.div>

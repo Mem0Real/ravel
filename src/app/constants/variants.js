@@ -1,20 +1,18 @@
-const slideUp = {
+const slideFromRight = {
 	hidden: {
-		y: "100vh",
+		x: "100vh",
 		opacity: 0,
 	},
 	visible: {
-		y: "95vh",
+		x: "10px",
 		opacity: 1,
 		transition: {
-			duration: 0.1,
-			type: "spring",
-			damping: 25,
-			stiffness: 500,
+			duration: 0.3,
+			ease: [0, 0.71, 0.2, 1.01],
 		},
 	},
 	exit: {
-		y: "100vh",
+		x: "10vh",
 		opacity: 0,
 	},
 };
@@ -89,4 +87,4 @@ const badSuspension = {
 	},
 };
 
-export { slideUp, flip, newspaper, badSuspension };
+export { slideFromRight, flip, newspaper, badSuspension };

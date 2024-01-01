@@ -15,7 +15,13 @@ const ToolForm = () => {
 		useContext(SelectedContext);
 
 	return (
-		<div className="relative w-[90%] md:w-[50%] lg:w-[30%] mx-auto bg-black z-20">
+		<div
+			className={`fixed top-0 bottom-0 right-0 left-0 z-20 ${
+				addTool || editTool || deleteTool
+					? "backdrop-blur-lg pointer-events-auto"
+					: "pointer-events-none"
+			}`}
+		>
 			<AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
 				{addTool ? (
 					<Modal
@@ -28,6 +34,7 @@ const ToolForm = () => {
 							/>
 						}
 						variant={flip}
+						className="mt-24 md:mt-56 w-[90%] md:w-[50%] lg:w-[30%] mx-auto "
 					/>
 				) : editTool ? (
 					<Modal
@@ -40,6 +47,7 @@ const ToolForm = () => {
 							/>
 						}
 						variant={flip}
+						className="mt-24 md:mt-56 w-[90%] md:w-[50%] lg:w-[30%] mx-auto "
 					/>
 				) : (
 					deleteTool && (
@@ -54,6 +62,7 @@ const ToolForm = () => {
 								/>
 							}
 							variant={flip}
+							className="mt-24 md:mt-56 w-[90%] md:w-[50%] lg:w-[30%] mx-auto "
 						/>
 					)
 				)}

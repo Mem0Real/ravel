@@ -45,20 +45,23 @@ const HamburgerModal = ({ handleClose, session }) => {
 	return (
 		<div
 			ref={ref}
-			className="md:hidden fixed bottom-2 pb-12 w-full
-	border border-neutral-800/50 py-8 mt-3 rounded-sm bg-neutral-900/80 backdrop-blur-md min-h-[30vh]"
+			className={`md:hidden w-full rounded-bl-lg bg-black flex flex-col justify-center items-start gap-5 ${
+				!session ? "pt-2 pb-12" : "py-2"
+			}`}
 		>
-			<div className="flex flex-col justify-around items-start gap-4 ps-16">
+			<div className="flex flex-col justify-around items-start gap-4 ps-4 pt-5">
 				<Link href="/">Home</Link>
 				<Link href="/dashboard">Dashboard</Link>
 			</div>
-			<FramerButton
-				text="Logout"
-				className={`mt-8 text-xs mx-auto -mb-4 bg-red-500 ${redBtn} ${
-					!session && "invisible"
-				}`}
-				handleClick={handleSignOut}
-			/>
+			{session && (
+				<FramerButton
+					text="Logout"
+					className={`mt-8 text-xs mx-auto bg-red-500 ${redBtn} ${
+						!session && "hidden"
+					}`}
+					handleClick={handleSignOut}
+				/>
+			)}
 		</div>
 	);
 };

@@ -11,7 +11,7 @@ const Input = ({
 	handleChange,
 }) => {
 	return (
-		<div className={`px-1.5 py-1.5 border-b ${className}`}>
+		<div className={`px-1.5 py-1.5 border-b w-full ${className}`}>
 			<input
 				name={name}
 				type={type}

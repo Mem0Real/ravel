@@ -22,7 +22,7 @@ const List = ({ tools }) => {
 	const isMobile = useIsMobile();
 
 	// Hover Effects
-	const handleMouseEnter = (id) => {
+	const handleMouseEnter = (id, isMobile) => {
 		if (!isMobile) {
 			if (menu.id === id) {
 				setMenu({ id: id, state: !menu.state });
@@ -32,7 +32,7 @@ const List = ({ tools }) => {
 		}
 	};
 
-	const handleMouseLeave = (id) => {
+	const handleMouseLeave = (id, isMobile) => {
 		if (!isMobile) {
 			if (menu.id === id) {
 				setMenu({ id: "", state: false });
@@ -40,17 +40,19 @@ const List = ({ tools }) => {
 		}
 	};
 
-	const handleTap = (id) => {
+	const handleTap = (id, isMobile) => {
 		if (isMobile) {
 			if (menu.id === id) {
 				setMenu({ id: id, state: !menu.state });
 			} else {
 				setMenu({ id: id, state: true });
 			}
-		}
+		} else console.log("NM");
 	};
 
-	const handleMouseMove = ({ clientX, clientY, currentTarget }) => {
+	const handleMouseMove = (e, isMobile) => {
+		const { clientX, clientY, currentTarget } = e;
+
 		if (!isMobile) {
 			let { left, top } = currentTarget.getBoundingClientRect();
 
@@ -63,15 +65,15 @@ const List = ({ tools }) => {
 
 	return (
 		<div className="flex flex-col justify-center items-center">
-			<div className="flex flex-col gap-8 justify-between items-center pb-8">
+			<div className="flex flex-col gap-16 justify-between items-center pb-8">
 				{tools.map(({ id, name, description }) => {
 					return (
 						<motion.div
-							className="relative overflow-hidden w-[60%] mx-auto border border-white rounded-xl shadow-md shadow-blue-400/80 p-8 pe-16 md:pe-24 flex flex-col justify-between items-start gap-4 cursor-pointer"
+							className="relative overflow-hidden min-w-[70vw] w-[60%] mx-auto border border-white rounded-xl shadow-md shadow-blue-400/80 p-8 pe-16 md:pe-24 flex flex-col justify-between items-start gap-4 cursor-pointer"
 							key={id}
-							onHoverStart={() => handleMouseEnter(id)}
-							onHoverEnd={() => handleMouseLeave(id)}
-							onMouseMove={handleMouseMove}
+							onHoverStart={() => handleMouseEnter(id, isMobile)}
+							onHoverEnd={() => handleMouseLeave(id, isMobile)}
+							onMouseMove={(e) => handleMouseMove(e, isMobile)}
 						>
 							{menu.id === id && menu.state && (
 								<motion.div
@@ -81,7 +83,10 @@ const List = ({ tools }) => {
 									}}
 								/>
 							)}
-							<motion.div onTap={() => handleTap(id)} className="">
+							<motion.div
+								onTap={() => handleTap(id, isMobile)}
+								className="flex flex-col gap-5 items-start w-full"
+							>
 								<React.Fragment key={id}>
 									<Card id={id} name={name} description={description} />
 									<AnimatePresence>

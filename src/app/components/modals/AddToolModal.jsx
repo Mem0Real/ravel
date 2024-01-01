@@ -5,6 +5,7 @@ import FramerButton from "../baseComponents/FramerButton";
 import { MdOutlineClose } from "react-icons/md";
 import { Create } from "@/app/serverActions/Create";
 import AddModalBody from "./modalComponents/AddModalBody";
+import useOutsideClick from "@/hooks/useOutsideClick";
 
 const AddToolModal = ({ handleClose }) => {
 	const [newTool, setNewTool] = useState({ name: "", description: "" });
@@ -13,17 +14,7 @@ const AddToolModal = ({ handleClose }) => {
 	const ref = useRef();
 
 	// Close Modal if clicked outside
-	useEffect(() => {
-		const checkIfClickedOutside = (e) => {
-			if (ref.current && !ref.current.contains(e.target)) {
-				handleClose();
-			}
-		};
-		document.addEventListener("click", checkIfClickedOutside);
-		return () => {
-			document.removeEventListener("click", checkIfClickedOutside);
-		};
-	}, [handleClose]);
+	useOutsideClick();
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;

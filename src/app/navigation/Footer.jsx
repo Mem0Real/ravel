@@ -4,7 +4,7 @@ import EndSection from "./footerComponents/FooterEnd";
 
 const Footer = () => {
 	return (
-		<div className="flex justify-between items-center p-8 border-t border-neutral-700/40 w-[90%] mx-auto">
+		<div className="flex justify-between items-center p-8 border-t border-neutral-700/40 w-[90%] mx-auto z-50">
 			<StartSection />
 			<EndSection />
 		</div>
