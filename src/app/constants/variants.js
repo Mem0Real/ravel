@@ -87,4 +87,23 @@ const badSuspension = {
 	},
 };
 
-export { slideFromRight, flip, newspaper, badSuspension };
+const textSlideToR = {
+	hidden: { opacity: 0, x: -35 },
+	visible: { opacity: 1, x: 0 },
+	exit: { opacity: 0, x: 50 },
+};
+
+const textSlideToL = {
+	hidden: { opacity: 0, x: 50 },
+	visible: { opacity: 1, x: 0 },
+	exit: { opacity: 0, x: -35 },
+};
+
+export {
+	slideFromRight,
+	flip,
+	newspaper,
+	badSuspension,
+	textSlideToL,
+	textSlideToR,
+};
