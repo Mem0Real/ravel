@@ -16,9 +16,9 @@ const NavMid = () => {
 	];
 
 	return (
-		<ul className="hidden md:flex gap-12 justify-center items-center list-none ">
+		<ul className="hidden md:flex gap-12 justify-center items-center list-none">
 			{links.map(({ href, label }) => (
-				<Link key={label} href={href} className="relative group">
+				<Link key={label} href={href} className="relative group px-2">
 					{path === href && (
 						<motion.span
 							layoutId="active-underline"
@@ -27,7 +27,7 @@ const NavMid = () => {
 					)}
 					<span
 						key={href}
-						className="text-sm text-neutral-700 p-1 dark:text-neutral-300 rounded-md backdrop-blur-md transition-all duration-200 ease-in-out hover:text-neutral-900 dark:hover:text-neutral-100 "
+						className="text-sm text-neutral-700 dark:text-neutral-300 rounded-md backdrop-blur-md transition-all duration-200 ease-in-out hover:text-neutral-900 dark:hover:text-neutral-100 "
 					>
 						{label}
 					</span>
