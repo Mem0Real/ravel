@@ -38,7 +38,7 @@ const NavEnd = ({ toggleHamburger, session }) => {
 			<div className="hidden md:flex flex-col justify-around items-center gap-4">
 				<FramerButton
 					text="Logout"
-					className={`text-xs ${redBtn} ${!session && "hidden"}`}
+					className={`text-xs ${redBtn} ${!session && "invisible"}`}
 					handleClick={handleSignOut}
 				/>
 			</div>
