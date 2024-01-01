@@ -10,6 +10,7 @@ const InputWithIcon = ({
 	className,
 	handleChange,
 	icon,
+	value,
 }) => {
 	return (
 		<div
@@ -21,6 +22,7 @@ const InputWithIcon = ({
 				placeholder={placeholder}
 				className={` bg-transparent border-none outline-none placeholder:text-neutral-600 placeholder:${mont.className}`}
 				onChange={handleChange}
+				value={value || ""}
 			/>
 			<div className="absolute -right-3 -z-10 pointer-events-none">{icon}</div>
 		</div>

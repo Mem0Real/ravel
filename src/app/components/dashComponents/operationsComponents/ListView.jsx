@@ -9,8 +9,12 @@ import ToolForm from "./ToolForm";
 import FramerButton from "../../baseComponents/FramerButton";
 import { CiCirclePlus } from "react-icons/ci";
 
+import { signal } from "@preact/signals";
+
 export const ActionContext = createContext();
 export const SelectedContext = createContext();
+
+// const data = signal(null);
 
 const ListView = ({ tools }) => {
 	const [searchText, setSearchText] = useState("");
@@ -22,6 +26,11 @@ const ListView = ({ tools }) => {
 
 	const [editTool, showEditTool] = useState(false);
 	const [deleteTool, showDeleteTool] = useState(false);
+
+	useEffect(() => {
+		if (tools !== data) setData(tools);
+		console.log("Updated");
+	}, [tools]);
 
 	const toggleTool = (tool) => {
 		switch (tool) {
@@ -68,11 +77,13 @@ const ListView = ({ tools }) => {
 
 	// Filter data on search
 	const filterData = (text) => {
-		const result = tools.filter((tool) => {
-			return tool.name.toLowerCase().includes(text.toLowerCase());
-		});
+		if (text) {
+			const result = tools.filter((tool) => {
+				return tool.name.toLowerCase().includes(text.toLowerCase());
+			});
 
-		setData(result);
+			setData(result);
+		} else setData(tools);
 	};
 
 	// Filter data on search
@@ -92,7 +103,14 @@ const ListView = ({ tools }) => {
 		<>
 			{/* Modal to add, edit or delete */}
 			<SelectedContext.Provider
-				value={{ selectedTool, addTool, editTool, deleteTool, closeTool }}
+				value={{
+					selectedTool,
+					addTool,
+					editTool,
+					deleteTool,
+					closeTool,
+					setSearchText,
+				}}
 			>
 				<ToolForm />
 			</SelectedContext.Provider>
@@ -102,6 +120,7 @@ const ListView = ({ tools }) => {
 				<Search
 					handleChange={handleChange}
 					handleClick={() => toggleTool("add")}
+					searchText={searchText}
 				/>
 				<FramerButton
 					text={
@@ -116,9 +135,12 @@ const ListView = ({ tools }) => {
 				/>
 			</div>
 
-			{/* Display list */}
 			<ActionContext.Provider value={{ handleEdit, handleDelete }}>
-				{searchText ? <List tools={data} /> : <List tools={tools} />}
+				{data ? (
+					<List tools={data} />
+				) : (
+					<p className="text-center text-2xl mt-10">Loading...</p>
+				)}
 			</ActionContext.Provider>
 		</>
 	);

@@ -7,7 +7,7 @@ import { SelectedContext } from "../dashComponents/operationsComponents/ListView
 import toast from "react-hot-toast";
 
 const ToolModal = ({ title, handleClose, operation, remove }) => {
-	const { selectedTool } = useContext(SelectedContext);
+	const { selectedTool, setSearchText } = useContext(SelectedContext);
 
 	const [tool, setTool] = useState(
 		selectedTool ?? { name: "", description: "" }
@@ -47,6 +47,8 @@ const ToolModal = ({ title, handleClose, operation, remove }) => {
 			setLoading(false);
 			toast.remove(toastId);
 			toast.success(successText);
+
+			setSearchText("");
 
 			setTool({ name: "", description: "" });
 			handleClose();
