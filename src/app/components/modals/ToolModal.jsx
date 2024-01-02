@@ -61,10 +61,9 @@ const ToolModal = ({ title, handleClose, operation, remove }) => {
 	return (
 		<div
 			ref={ref}
-			className={`absolute w-full -top-12 md:-top-36
-	border ${
-		remove ? "border-red-950 text-red-400/70" : "border-neutral-800/50"
-	} py-8 px-4 mt-3 rounded-lg bg-neutral-900/70 backdrop-blur-md min-h-56`}
+			className={`absolute w-full -top-7 md:-top-36
+	border border-neutral-800/50"
+	py-8 px-4 mt-3 rounded-lg bg-neutral-900/70 backdrop-blur-sm min-h-56`}
 		>
 			<ToolHeader title={title} handleClose={handleClose} />
 			<ToolBody

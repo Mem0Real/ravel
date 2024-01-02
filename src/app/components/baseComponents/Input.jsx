@@ -17,7 +17,7 @@ const Input = ({
 				type={type}
 				placeholder={placeholder}
 				value={value}
-				className={`bg-transparent border-none outline-none placeholder:text-neutral-600`}
+				className={`bg-transparent border-none outline-none placeholder:text-neutral-300`}
 				onChange={handleChange}
 			/>
 		</div>

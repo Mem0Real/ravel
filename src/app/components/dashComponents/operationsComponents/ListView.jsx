@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useState, useEffect, Suspense } from "react";
+import React, { createContext, useState, useEffect, useRef } from "react";
 import List from "./List";
 
 import Search from "./Search";
@@ -23,6 +23,8 @@ const ListView = ({ tools }) => {
 
 	const [editTool, showEditTool] = useState(false);
 	const [deleteTool, showDeleteTool] = useState(false);
+
+	const modalRef = useRef();
 
 	useEffect(() => {
 		if (tools !== data) setData(tools);
@@ -109,6 +111,7 @@ const ListView = ({ tools }) => {
 					deleteTool,
 					closeTool,
 					setSearchText,
+					modalRef,
 				}}
 			>
 				<ToolForm />

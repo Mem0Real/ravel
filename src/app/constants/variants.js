@@ -17,26 +17,35 @@ const slideFromRight = {
 	},
 };
 
-const flip = {
+const zoom = {
 	hidden: {
-		transform: "scale(0) rotateX(-360deg)",
+		transform: "scale(0.5)",
 		opacity: 0,
 		transition: {
-			delay: 0.3,
+			duration: 0.5,
+			type: "spring",
+			damping: 10,
+			stiffness: 50,
 		},
 	},
 	visible: {
-		transform: " scale(1) rotateX(0deg)",
+		transform: " scale(1) ",
 		opacity: 1,
 		transition: {
 			duration: 0.5,
+			type: "spring",
+			damping: 10,
+			stiffness: 50,
 		},
 	},
 	exit: {
-		transform: "scale(0) rotateX(360deg)",
+		transform: "scale(0) ",
 		opacity: 0,
 		transition: {
 			duration: 0.5,
+			type: "spring",
+			damping: 10,
+			stiffness: 50,
 		},
 	},
 };
@@ -101,7 +110,7 @@ const textSlideToL = {
 
 export {
 	slideFromRight,
-	flip,
+	zoom,
 	newspaper,
 	badSuspension,
 	textSlideToL,

@@ -1,24 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import Modal from "../../Modal";
 import ToolModal from "../../modals/ToolModal";
 
-import { flip } from "@/app/constants/variants";
+import { zoom } from "@/app/constants/variants";
 
 import { Create } from "@/app/serverActions/Create";
 import { Update } from "@/app/serverActions/Update";
 import { Delete } from "@/app/serverActions/Delete";
 import { SelectedContext } from "./ListView";
+import useScrollModal from "@/hooks/useScrollModal";
 
 const ToolForm = () => {
-	const { addTool, editTool, deleteTool, closeTool } =
+	const { addTool, editTool, deleteTool, closeTool, modalRef } =
 		useContext(SelectedContext);
 
+	useScrollModal(modalRef, addTool || editTool || deleteTool);
 	return (
 		<div
-			className={`fixed top-0 bottom-0 right-0 left-0 z-20 ${
+			className={`fixed -top-10 bottom-0 right-0 left-0 z-50 ${
 				addTool || editTool || deleteTool
-					? "backdrop-blur-lg pointer-events-auto"
+					? "backdrop-blur-sm pointer-events-auto bg-black/50"
 					: "pointer-events-none"
 			}`}
 		>
@@ -33,7 +35,7 @@ const ToolForm = () => {
 								handleClose={() => closeTool("add")}
 							/>
 						}
-						variant={flip}
+						variant={zoom}
 						className="mt-24 md:mt-56 w-[90%] md:w-[50%] lg:w-[30%] mx-auto "
 					/>
 				) : editTool ? (
@@ -46,7 +48,7 @@ const ToolForm = () => {
 								handleClose={() => closeTool("edit")}
 							/>
 						}
-						variant={flip}
+						variant={zoom}
 						className="mt-24 md:mt-56 w-[90%] md:w-[50%] lg:w-[30%] mx-auto "
 					/>
 				) : (
@@ -61,7 +63,7 @@ const ToolForm = () => {
 									remove
 								/>
 							}
-							variant={flip}
+							variant={zoom}
 							className="mt-24 md:mt-56 w-[90%] md:w-[50%] lg:w-[30%] mx-auto "
 						/>
 					)

@@ -16,7 +16,7 @@ const TextArea = ({
 				rows={rows}
 				name={name}
 				placeholder={placeholder}
-				className="bg-transparent border-none outline-none w-full placeholder:text-neutral-600"
+				className="bg-transparent border-none outline-none w-full placeholder:text-neutral-300"
 				onChange={handleChange}
 				value={value}
 			/>
