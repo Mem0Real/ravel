@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, Suspense } from "react";
 import List from "./List";
 
 import Search from "./Search";
@@ -8,13 +8,10 @@ import ToolForm from "./ToolForm";
 
 import FramerButton from "../../baseComponents/FramerButton";
 import { CiCirclePlus } from "react-icons/ci";
-
-import { signal } from "@preact/signals";
+import Skeleton from "../../Skeleton";
 
 export const ActionContext = createContext();
 export const SelectedContext = createContext();
-
-// const data = signal(null);
 
 const ListView = ({ tools }) => {
 	const [searchText, setSearchText] = useState("");
@@ -82,7 +79,9 @@ const ListView = ({ tools }) => {
 				return tool.name.toLowerCase().includes(text.toLowerCase());
 			});
 
-			setData(result);
+			setTimeout(() => {
+				setData(result);
+			}, 500);
 		} else setData(tools);
 	};
 
@@ -116,7 +115,7 @@ const ListView = ({ tools }) => {
 			</SelectedContext.Provider>
 
 			{/* Search input and add trigger */}
-			<div className="w-[30%] mx-auto flex justify-evenly items-center z-10">
+			<div className="w-[30vw] mx-auto flex justify-around items-center z-10">
 				<Search
 					handleChange={handleChange}
 					handleClick={() => toggleTool("add")}
@@ -127,7 +126,7 @@ const ListView = ({ tools }) => {
 						<CiCirclePlus
 							size={30}
 							color="#228B22"
-							className="self-end place-self-end mb-1.5"
+							className="self-end place-self-end"
 						/>
 					}
 					handleClick={() => toggleTool("add")}
@@ -136,11 +135,7 @@ const ListView = ({ tools }) => {
 			</div>
 
 			<ActionContext.Provider value={{ handleEdit, handleDelete }}>
-				{data ? (
-					<List tools={data} />
-				) : (
-					<p className="text-center text-2xl mt-10">Loading...</p>
-				)}
+				{data ? <List tools={data} /> : <Skeleton />}
 			</ActionContext.Provider>
 		</>
 	);

@@ -9,7 +9,7 @@ const Search = ({ handleChange, searchText }) => {
 			placeholder="Search..."
 			icon={<MdSearch size={21} color="gray" className="-mt-1 me-3" />}
 			handleChange={handleChange}
-			className="w-fit z-10"
+			className="w-[60vw] z-10 mr-5"
 			value={searchText}
 		/>
 	);
