@@ -8,6 +8,7 @@ const FramerButton = ({
 	handleClick,
 	icon = false,
 	loading = false,
+	name,
 }) => {
 	return (
 		<motion.button
@@ -18,6 +19,7 @@ const FramerButton = ({
 			}`}
 			onClick={handleClick}
 			disabled={loading}
+			name={name}
 		>
 			{text}
 		</motion.button>

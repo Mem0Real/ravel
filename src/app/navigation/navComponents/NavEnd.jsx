@@ -39,6 +39,8 @@ const NavEnd = ({ toggleHamburger, session }) => {
 				text={<CiMenuFries />}
 				handleClick={toggleHamburger}
 				className="md:hidden"
+				name="hamburger"
+				aria-label="hamburger"
 			/>
 			<div className="hidden md:flex flex-col justify-around items-center gap-4">
 				<FramerButton

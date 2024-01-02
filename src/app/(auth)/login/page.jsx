@@ -55,6 +55,7 @@ export default function LoginPage() {
 							alt="Login"
 							className="absolute object-contain object-center brightness-75 contrast-150"
 							sizes="(max-width: 768px) 100vw"
+							priority
 						/>
 					</div>
 				</div>
@@ -86,6 +87,7 @@ export default function LoginPage() {
 								autoComplete="phone"
 								autoFocus={true}
 								disabled={loading}
+								aria-label="phone"
 							/>
 
 							<label
@@ -103,11 +105,14 @@ export default function LoginPage() {
 								placeholder=" "
 								autoComplete="current-password"
 								disabled={loading}
+								aria-label="password"
 							/>
 							<button
 								type="button"
 								className="absolute right-2 top-3"
 								onClick={() => showPassword(!password)}
+								name="show password"
+								aria-label="show password"
 							>
 								{password ? (
 									<AiOutlineEye size={19} />
