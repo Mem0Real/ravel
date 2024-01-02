@@ -15,7 +15,9 @@ const ToolForm = () => {
 	const { addTool, editTool, deleteTool, closeTool, modalRef } =
 		useContext(SelectedContext);
 
-	useScrollModal(modalRef, addTool || editTool || deleteTool);
+	// Disable scroll on modal open
+	// useScrollModal(modalRef, addTool || editTool || deleteTool);
+
 	return (
 		<div
 			className={`fixed top-0 bottom-0 right-0 left-0 z-20 ${
@@ -37,6 +39,9 @@ const ToolForm = () => {
 						}
 						variant={zoom}
 						className="mt-24 md:mt-56 w-[90%] md:w-[50%] lg:w-[30%] mx-auto "
+						// className={`fixed top-0 bottom-0 right-0 left-0 z-40 bg-white/20 dark:bg-black/20 backdrop-blur-sm flex ${
+						// 	addModal ? "pointer-events-auto" : "pointer-events-none"
+						// }`}
 					/>
 				) : editTool ? (
 					<Modal

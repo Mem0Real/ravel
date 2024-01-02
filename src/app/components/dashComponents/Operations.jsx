@@ -8,7 +8,7 @@ const Operations = async () => {
 	const tools = await Read();
 
 	return (
-		<div className="relative w-full flex flex-col justify-start items-center gap-8 md:pt-5 lg:pt-0">
+		<div className="relative w-full flex flex-col justify-start items-center gap-8 mt-7 md:-mt-5">
 			<ListView tools={tools} />
 		</div>
 	);

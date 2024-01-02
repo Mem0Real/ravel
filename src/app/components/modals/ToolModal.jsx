@@ -62,8 +62,9 @@ const ToolModal = ({ title, handleClose, operation, remove }) => {
 		<div
 			ref={ref}
 			className={`absolute w-full -top-7 md:-top-36
-	border border-neutral-800/50"
-	py-8 px-4 mt-3 rounded-lg bg-neutral-900/70 backdrop-blur-sm min-h-56`}
+			border border-neutral-800/50"
+			py-8 px-4 mt-3 rounded-lg bg-neutral-900/70 backdrop-blur-sm min-h-56`}
+			// className="h-[95%] w-[90%] sm:w-[75%] md:w-[40%] lg:w-[30%] my-5 md:py-3 ml-auto overflow-y-scroll no-scrollbar rounded-lg bg-neutral-300 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200"
 		>
 			<ToolHeader title={title} handleClose={handleClose} />
 			<ToolBody

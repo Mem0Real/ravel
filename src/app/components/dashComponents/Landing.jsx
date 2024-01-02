@@ -6,7 +6,7 @@ import BackgroundLg from "./landingComponents/BackgroundLg";
 
 const Landing = () => {
 	return (
-		<div className="min-h-56 relative flex flex-col md:flex-row justify-start items-start w-fit md:ps-36 -mt-12 mb-12 md:mt-0 md:mb-0">
+		<div className="min-h-56 relative flex flex-col md:flex-row justify-start items-start w-fit mx-auto -mt-16 md:-mt-5 md:ps-36 ">
 			<BackgroundSm />
 			<LandingText />
 			<BackgroundLg />
