@@ -18,7 +18,7 @@ const ToolForm = () => {
 	useScrollModal(modalRef, addTool || editTool || deleteTool);
 	return (
 		<div
-			className={`fixed -top-10 bottom-0 right-0 left-0 z-50 ${
+			className={`fixed top-0 bottom-0 right-0 left-0 z-20 ${
 				addTool || editTool || deleteTool
 					? "backdrop-blur-sm pointer-events-auto bg-black/50"
 					: "pointer-events-none"
