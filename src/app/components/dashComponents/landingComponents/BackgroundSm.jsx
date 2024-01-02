@@ -8,7 +8,7 @@ const BackgroundSm = () => {
 				fill
 				sizes="(max-width: 768px) 100vw, (max-width: 1200px)"
 				className="object-contain object-center"
-				src="/images/dashBgSm.png"
+				src="/images/dashBgSm.webp"
 				alt="Assist"
 				priority
 			/>

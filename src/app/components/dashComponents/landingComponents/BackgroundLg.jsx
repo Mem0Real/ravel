@@ -8,7 +8,7 @@ const BackgroundLg = () => {
 				fill
 				sizes="(max-width: 768px) 100vw, (max-width: 1200px)"
 				className="object-contain object-left"
-				src="/images/dashBg.png"
+				src="/images/dashBg.webp"
 				alt="Assist"
 				priority
 			/>

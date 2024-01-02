@@ -11,7 +11,7 @@ const Hero = () => {
 			<div className="hidden md:block absolute -right-16 w-[40vw] h-[80vh] bg-heroBg bg-center bg-no-repeat bg-contain -z-50" />
 			<div
 				className="block md:hidden absolute inset-0 top-3 w-[80vw] h-[80vh] bg-center bg-no-repeat bg-contain -z-50"
-				style={{ backgroundImage: `url("images/heroBgSm.png")` }}
+				style={{ backgroundImage: `url("images/heroBgSm.webp")` }}
 			/>
 			<div className="relative basis-0 md:basis-1/3">
 				<HeroEnd />

@@ -45,30 +45,30 @@ export default function LoginPage() {
 	};
 
 	return (
-		<div className="flex min-h-[77vh] relative">
+		<div className="flex min-h-[82vh] relative w-full">
 			{!isMobile && (
 				<div className="hidden md:flex basis-3/4 border-r border-white bg-black flex-col items-center justify-center">
 					<div className=" relative w-[15em] h-96">
 						<Image
 							fill
-							src="/images/loginBg.png"
+							src="/images/loginBg.webp"
 							alt="Login"
 							className="absolute object-contain object-center brightness-75 contrast-150"
-							sizes="(max-width: 768px) 100vw, (max-width: 1200px)"
+							sizes="(max-width: 768px) 100vw"
 						/>
 					</div>
 				</div>
 			)}
-			<div className="md:basis-1/4 relative mx-auto">
+			<div className="w-full lg:basis-1/4 relative">
 				<Image
 					fill
-					src="/images/loginBg.png"
+					src="/images/loginBg.webp"
 					alt="Login"
-					className="block md:hidden absolute object-contain object-top opacity-5 z-10 pointer-events-none"
-					sizes="(max-width: 768px) 100vw, (max-width: 1200px)"
+					className="block lg:hidden absolute object-contain object-top opacity-5 z-10 pointer-events-none"
+					sizes="(max-width: 768px) 99vw"
 				/>
 				<form
-					className="flex flex-col justify-center items-center gap-4 bg-neutral-950 w-fit z-20 h-full pt-12 md:pt-0"
+					className="flex flex-col justify-center items-center gap-4 bg-neutral-950 z-20 h-full w-full pt-12 lg:pt-0"
 					onSubmit={handleSubmit}
 				>
 					<h1
@@ -76,7 +76,7 @@ export default function LoginPage() {
 					>
 						Login
 					</h1>
-					<div className="w-96 flex flex-col items-center justify-center gap-4 py-12">
+					<div className="w-full flex flex-col items-center justify-center gap-4 py-12">
 						<div className="relative z-0 w-2/3 mb-9 group">
 							<input
 								type="number"

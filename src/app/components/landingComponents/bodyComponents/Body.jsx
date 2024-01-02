@@ -37,7 +37,7 @@ const Body = () => {
 			</div>
 			<Image
 				fill
-				src="/images/homeBodyBg2.png"
+				src="/images/homeBodyBg2.webp"
 				alt=""
 				className="absolute object-cover w-full h-full -z-10 pointer-events-none opacity-75 md:opacity-90"
 				sizes="(max-width: 768px) 100vw, (max-width: 1200px)"
