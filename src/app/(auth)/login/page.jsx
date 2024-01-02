@@ -67,6 +67,7 @@ export default function LoginPage() {
 					alt="Login"
 					className="block lg:hidden absolute object-contain object-top opacity-5 z-10 pointer-events-none"
 					sizes="(max-width: 768px) 99vw"
+					priority
 				/>
 				<form
 					className="flex flex-col justify-center items-center gap-4 bg-neutral-950 z-20 h-full w-full pt-12 lg:pt-0"

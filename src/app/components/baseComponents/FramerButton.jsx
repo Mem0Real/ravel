@@ -9,6 +9,7 @@ const FramerButton = ({
 	icon = false,
 	loading = false,
 	name,
+	ariaLabel,
 }) => {
 	return (
 		<motion.button
@@ -20,6 +21,7 @@ const FramerButton = ({
 			onClick={handleClick}
 			disabled={loading}
 			name={name}
+			aria-label={ariaLabel}
 		>
 			{text}
 		</motion.button>

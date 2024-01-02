@@ -40,7 +40,7 @@ const NavEnd = ({ toggleHamburger, session }) => {
 				handleClick={toggleHamburger}
 				className="md:hidden"
 				name="hamburger"
-				aria-label="hamburger"
+				ariaLabel="hamburger menu"
 			/>
 			<div className="hidden md:flex flex-col justify-around items-center gap-4">
 				<FramerButton
